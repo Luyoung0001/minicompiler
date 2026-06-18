@@ -10,7 +10,7 @@ source_path: 'course/practice/labs/lab05-step5/TASK.md'
 ---
 
 
-> **实验编号** Lab05 &nbsp;&nbsp; **预计耗时** 5h &nbsp;&nbsp; **对应参考实现** [`step_5/`](https://github.com/Luyoung0001/minicompiler/tree/main/step_5) &nbsp;&nbsp; **本节产出** 生成可运行的最小 RISC-V 汇编片段
+> **实验编号** Lab05 &nbsp;&nbsp; **预计耗时** 5h &nbsp;&nbsp; **本节产出** 生成可运行的最小 RISC-V 汇编片段
 
 ## 本章任务
 

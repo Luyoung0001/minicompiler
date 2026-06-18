@@ -10,7 +10,7 @@ source_path: 'course/practice/labs/lab04-step4/TASK.md'
 ---
 
 
-> **实验编号** Lab04 &nbsp;&nbsp; **预计耗时** 4h &nbsp;&nbsp; **对应参考实现** [`step_4/`](https://github.com/Luyoung0001/minicompiler/tree/main/step_4) &nbsp;&nbsp; **本节产出** 发现未定义变量和重复定义
+> **实验编号** Lab04 &nbsp;&nbsp; **预计耗时** 4h &nbsp;&nbsp; **本节产出** 发现未定义变量和重复定义
 
 ## 本章任务
 

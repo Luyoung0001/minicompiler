@@ -11,9 +11,8 @@ next_page:
 source_path: 'course/chapters/ch03-step3-parser.md'
 ---
 
-> **对应实践**：[Lab03 - step_3 语法分析与 AST](/course/practice/labs/lab03-step3/)  
-> **主要修改文件**：`course/practice/labs/lab03-step3/framework/student.c`  
-> **参考实现位置**：`step_3/parser.c`、`step_3/ast.c`
+> **对应实践**：[Lab03 - step_3 语法分析与 AST](/course/practice/labs/lab03-step3/)
+> **主要修改文件**：`miniCompiler_lab/labs/lab03-step3/framework/student.c`
 
 到了这一章，编译器终于要开始处理“结构”了。token 流虽然已经比字符流干净很多，但它本质上仍然是一条线。而程序不是一条线。表达式有优先级，`if` 有条件和分支，函数定义有函数名和函数体，代码块里还会再套语句。
 
@@ -53,7 +52,7 @@ INT IDENT ASSIGN IDENT PLUS IDENT STAR IDENT SEMICOLON
 
 这门课选择的 parser 风格是递归下降。理由不是它“理论上最强”，而是它特别适合让你把语法结构和代码结构一一对应起来。
 
-你在 `step_3/parser.c` 里看到的一组函数：
+递归下降解析器里常见的一组函数：
 
 - `parse_primary`
 - `parse_factor`
@@ -80,17 +79,16 @@ INT IDENT ASSIGN IDENT PLUS IDENT STAR IDENT SEMICOLON
 
 所以当你在 lab 里补 `parse_primary` 或观察 `parse_if` 的结构时，不要只把它当成几个函数分支。你真正该看到的是：**语法层次正在通过函数调用层次显影**。
 
-## 3.5 参考实现里最该看的两类文件
+## 3.5 parser 和 AST 为什么要分成两件事
 
-这一章有两个核心文件群：
+这一章要同时抓住两类逻辑：
 
 ```text
-step_3/
-├── parser.c / parser.h
-└── ast.c / ast.h
+parser：怎样识别结构
+AST：怎样保存结构
 ```
 
-`parser.c` 负责“怎样认结构”，`ast.c` 负责“怎样把结构装进节点里”。
+parser 负责“怎样认结构”，AST 负责“怎样把结构装进节点里”。
 
 阅读时先问自己两个问题：
 
@@ -103,7 +101,7 @@ step_3/
 
 这一章的 practice 路径是：
 
-- `course/practice/labs/lab03-step3/`
+- `miniCompiler_lab/labs/lab03-step3/`
 
 主要修改文件：
 
@@ -112,7 +110,7 @@ step_3/
 验证命令：
 
 ```bash
-cd course/practice/labs/lab03-step3
+cd labs/lab03-step3
 make clean && make test
 ```
 

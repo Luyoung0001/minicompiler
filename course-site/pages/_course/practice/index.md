@@ -13,7 +13,29 @@ source_path: 'course/practice/README.md'
 
 从 `Chapter 1` 开始，这门课就不再只是阅读材料，而是要求你真的动手写代码。后面的每一章都会配一个对应 lab。chapter 负责把这章为什么存在、这个概念到底解决什么问题讲清楚，lab 负责把这一章真正该补的代码边界交给你。
 
-你可以把这里理解成“实践入口”，但不要把它当成题单。最推荐的节奏始终是：
+你可以把这里理解成“实践入口”，但不要把它当成题单。
+
+## 先把 lab 仓库拉到本地
+
+读课程网页时，你只需要拉取这个 lab 仓库：
+
+```bash
+git clone https://github.com/Luyoung0001/miniCompiler_lab.git
+cd miniCompiler_lab
+bash scripts/bootstrap-practice.sh
+```
+
+后面所有需要你修改的代码，都在这个仓库里。课程网页会用 `labs/...` 描述实验位置；这些路径都以 `miniCompiler_lab` 仓库根目录为起点。
+
+lab 仓库地址是：
+
+```text
+https://github.com/Luyoung0001/miniCompiler_lab.git
+```
+
+## 你应该怎样使用这里
+
+最推荐的节奏始终是：
 
 1. 先读对应 chapter
 2. 再进入对应 lab，读 `TASK.md`
@@ -22,15 +44,14 @@ source_path: 'course/practice/README.md'
 
 这个顺序很重要。因为这门课不是让你只对着测试输出来猜实现，而是希望你先知道“为什么现在轮到这件事”，再去写代码。
 
-## 这套 practice 和参考实现是什么关系
+## 这套 practice 怎样组织
 
-根目录的 `step_1/` 到 `step_5/` 是参考实现，它们展示了编译器每个阶段的完成状态。  
-`course/practice/labs/` 不是那套实现的副本，而是把每一章真正关键的子问题单独抽出来，做成边界清晰的 scaffold。
+`labs/` 把每一章真正关键的子问题单独抽出来，做成边界清晰的 scaffold。你不需要在一个庞大的完整工程里到处找入口，只需要跟着当前 chapter，进入对应 lab，完成 `framework/student.c` 里的 TODO。
 
 也就是说：
 
-- 你不会直接在 `step_2/lexer.c` 里练习
-- 你会在 `course/practice/labs/lab02-step2/framework/student.c` 里完成和它同主题的核心逻辑
+- 你会在 `labs/lab02-step2/framework/student.c` 里完成词法分析这一章的核心逻辑
+- 你每完成一章，就用该 lab 的 `make clean && make test` 验证一次
 
 这样做的好处是，lab 的代码范围会小很多，你能更快把注意力放在这一章真正想教的点上。
 

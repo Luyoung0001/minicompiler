@@ -8,9 +8,8 @@ prev_page:
 source_path: 'course/chapters/ch05-step5-codegen.md'
 ---
 
-> **对应实践**：[Lab05 - step_5 代码生成](/course/practice/labs/lab05-step5/)  
-> **主要修改文件**：`course/practice/labs/lab05-step5/framework/student.c`  
-> **参考实现位置**：`step_5/codegen.c`
+> **对应实践**：[Lab05 - step_5 代码生成](/course/practice/labs/lab05-step5/)
+> **主要修改文件**：`miniCompiler_lab/labs/lab05-step5/framework/student.c`
 
 前面的章节一直在做“理解程序”这件事：读文件、切 token、建 AST、做语义检查。到了这一章，编译器终于要把这种理解变成对目标机器真正有用的东西：RISC-V 汇编。
 
@@ -30,7 +29,7 @@ source_path: 'course/chapters/ch05-step5-codegen.md'
 
 ## 5.2 这一章最重要的直觉：栈帧不是附属细节
 
-在 `step_5/codegen.c` 里，你会不断看到这些名字：
+在代码生成这一章里，你会不断遇到这些名字：
 
 - `sp`
 - `s0`
@@ -47,24 +46,16 @@ source_path: 'course/chapters/ch05-step5-codegen.md'
 
 ## 5.3 先看一个最真实的闭环
 
-进入 `step_5/` 后，执行：
-
-```bash
-make
-make test
-make run
-```
-
-你会看到两件非常关键的事情：
-
-1. 编译器真的生成了一份 RISC-V 汇编
-2. 这份汇编真的被汇编、链接并交给 `qemu-riscv32` 跑了起来
-
-这说明整门课终于走到了完整闭环：
+从这一章开始，验证不再只是“结构对不对”，还要看生成的汇编能不能被工具链接受。你会反复遇到这个闭环：
 
 ```text
 source.c -> token -> AST -> semantic check -> RISC-V asm -> qemu
 ```
+
+这里有两件非常关键的事情：
+
+1. 编译器真的生成了一份 RISC-V 汇编
+2. 这份汇编真的被汇编、链接并交给 `qemu-riscv32` 跑了起来
 
 前面所有章节，都是在为这里铺路。
 
@@ -78,7 +69,7 @@ source.c -> token -> AST -> semantic check -> RISC-V asm -> qemu
 4. 把右边弹出来放到另一个寄存器
 5. 执行具体运算
 
-你在 `step_5/codegen.c` 里看到的 `addi sp, sp, -4`、`sw`、`lw`、`addi sp, sp, 4`，本质上都在做这件事。
+你在 lab 里接触到的 `addi sp, sp, -4`、`sw`、`lw`、`addi sp, sp, 4`，本质上都在做这件事。
 
 这类代码第一次看会觉得繁琐，但只要你抓住“一个子表达式结果要暂存，栈就是最直接的临时仓库”这个直觉，很多看似机械的指令序列就会变得顺眼。
 
@@ -105,7 +96,7 @@ source.c -> token -> AST -> semantic check -> RISC-V asm -> qemu
 
 这一章的 practice 路径是：
 
-- `course/practice/labs/lab05-step5/`
+- `miniCompiler_lab/labs/lab05-step5/`
 
 主要修改文件：
 
@@ -114,7 +105,7 @@ source.c -> token -> AST -> semantic check -> RISC-V asm -> qemu
 验证命令：
 
 ```bash
-cd course/practice/labs/lab05-step5
+cd labs/lab05-step5
 make clean && make test
 ```
 

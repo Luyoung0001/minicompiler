@@ -10,7 +10,7 @@ source_path: 'course/practice/labs/lab01-step1/TASK.md'
 ---
 
 
-> **实验编号** Lab01 &nbsp;&nbsp; **预计耗时** 2h &nbsp;&nbsp; **对应参考实现** [`step_1/`](https://github.com/Luyoung0001/minicompiler/tree/main/step_1) &nbsp;&nbsp; **本节产出** 跑通一个最小但真实的 `input.c -> out.s` 编译器驱动
+> **实验编号** Lab01 &nbsp;&nbsp; **预计耗时** 2h &nbsp;&nbsp; **本节产出** 跑通一个最小但真实的 `input.c -> out.s` 编译器驱动
 
 ## 实验目的
 

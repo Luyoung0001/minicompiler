@@ -8,7 +8,7 @@ next_page:
 source_path: 'course/README.md'
 ---
 
-这门课的目标很直接：带你把一个迷你 C 编译器真正拆开、看懂、再亲手做出来。你不会只停在“知道编译器大概分成词法、语法、语义、代码生成”这种概念层面，而是会沿着 `step_1` 到 `step_5` 的真实项目台阶，把命令行驱动、词法分析、抽象语法树、语义检查和 RISC-V 代码生成一段一段接起来。
+这门课的目标很直接：带你把一个迷你 C 编译器真正拆开、看懂、再亲手做出来。你不会只停在“知道编译器大概分成词法、语法、语义、代码生成”这种概念层面，而是会沿着命令行驱动、词法分析、抽象语法树、语义检查和 RISC-V 代码生成这条主线，一段一段把编译器接起来。
 
 如果你以前学过一些编译原理名词，却总觉得它们飘在 PPT 和文法规则里，没有真正落到代码里，这门课就是为这个缺口准备的。课程的主线一直保持同一个节奏：先把这一章为什么存在讲清楚，再进入对应 lab，在代码骨架里把这一章真正关键的部分补出来，然后用可观察的输出确认你做对了。
 
@@ -29,10 +29,13 @@ source_path: 'course/README.md'
 
 第一次进入课程时，不要急着跳到词法分析或语法分析。按这个顺序走：
 
-1. 先读 [Chapter 0](/course/00-orientation/)，把工具链、仓库结构和第一次 smoke test 跑通。
-2. 再进入 [Practice 与实验说明](/course/practice/)，确认这一门课的 lab 怎么使用。
-3. 从 [Chapter 1](/course/chapters/ch01-step1-driver/) 开始正式课程。
-4. 每读完一章，立刻去做对应 lab。
+1. 先读 [Chapter 0](/course/00-orientation/)，把工具链检查清楚，并拉取 lab 仓库。
+2. 在本地 clone `https://github.com/Luyoung0001/miniCompiler_lab.git`，运行第一次 smoke test。
+3. 再进入 [Practice 与实验说明](/course/practice/)，确认这一门课的 lab 怎么使用。
+4. 从 [Chapter 1](/course/chapters/ch01-step1-driver/) 开始正式课程。
+5. 每读完一章，立刻去 `miniCompiler_lab/labs/...` 里的对应 lab 完成代码。
+
+讲义在网页上阅读，代码在 `miniCompiler_lab` 仓库里完成。你后面可以在这个 lab 仓库里持续提交自己的实现。
 
 如果你只想记住最短路径，那就是：
 
@@ -64,5 +67,6 @@ Chapter 0 -> Practice 说明 -> Chapter 1 -> Lab01 -> Chapter 2 -> Lab02 -> ... 
 如果你准备开始这门课，下一步就是：
 
 1. 进入 [Chapter 0](/course/00-orientation/)
-2. 跑通里面的环境检查和 practice smoke test
-3. 然后继续进入 [Chapter 1](/course/chapters/ch01-step1-driver/)
+2. 确认 `miniCompiler_lab` 已经拉取完成
+3. 跑通 lab 仓库里的环境检查和 practice smoke test
+4. 然后继续进入 [Chapter 1](/course/chapters/ch01-step1-driver/)

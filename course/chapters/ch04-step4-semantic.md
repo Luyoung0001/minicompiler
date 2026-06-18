@@ -1,8 +1,7 @@
 # Chapter 4 — step_4 符号表、作用域与语义分析
 
-> **对应实践**：[Lab04 - step_4 语义分析](../practice/labs/lab04-step4/TASK.md)  
-> **主要修改文件**：`course/practice/labs/lab04-step4/framework/student.c`  
-> **参考实现位置**：`step_4/symbol.c`、`step_4/semantic.c`
+> **对应实践**：[Lab04 - step_4 语义分析](../practice/labs/lab04-step4/TASK.md)
+> **主要修改文件**：`miniCompiler_lab/labs/lab04-step4/framework/student.c`
 
 到了这里，编译器已经能把源码变成 AST。但“能建树”不代表“程序合法”。一份语法完全正确的程序，仍然可能犯很多错误：使用了没定义的变量、同一作用域里重复定义变量、把不兼容的类型硬塞到一起。
 
@@ -61,7 +60,7 @@ int main() {
 这里内层的 `x` 并不是非法重复定义，而是一个新的、遮蔽外层名字的局部变量。  
 这说明编译器必须能区分“当前作用域”和“父作用域”。
 
-所以 `step_4/symbol.c` 采用的并不是单张平面表，而是带 `parent` 指针的作用域链。进入新块时进入新作用域，离开时再退回父作用域。这种结构会一路影响到后面的代码生成，因为变量栈偏移本身也依赖作用域中的符号信息。
+所以本章的符号表不能是单张平面表，而应该是带 `parent` 指针的作用域链。进入新块时进入新作用域，离开时再退回父作用域。这种结构会一路影响到后面的代码生成，因为变量栈偏移本身也依赖作用域中的符号信息。
 
 ## 4.4 语义分析器真正做的事
 
@@ -75,16 +74,9 @@ int main() {
 
 也就是说，语义分析的关键不在“遍历”本身，而在“遍历时手里一直带着符号表上下文”。
 
-## 4.5 参考实现里现在最值得看的输出
+## 4.5 现在最值得看的错误输出
 
-如果你进入 `step_4/`，执行：
-
-```bash
-make
-./minicc -v test_error.c -o /dev/null
-```
-
-你会看到类似这样的错误：
+当语义分析发现错误时，你应当期待类似这样的输出：
 
 ```text
 语义错误 [7:19]: 未定义的变量 'undefined_var'
@@ -98,7 +90,7 @@ make
 
 这一章的 practice 路径是：
 
-- `course/practice/labs/lab04-step4/`
+- `miniCompiler_lab/labs/lab04-step4/`
 
 主要修改文件：
 
@@ -107,7 +99,7 @@ make
 验证命令：
 
 ```bash
-cd course/practice/labs/lab04-step4
+cd labs/lab04-step4
 make clean && make test
 ```
 

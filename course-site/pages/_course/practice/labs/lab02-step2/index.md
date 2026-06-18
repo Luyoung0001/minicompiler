@@ -10,7 +10,7 @@ source_path: 'course/practice/labs/lab02-step2/TASK.md'
 ---
 
 
-> **实验编号** Lab02 &nbsp;&nbsp; **预计耗时** 3h &nbsp;&nbsp; **对应参考实现** [`step_2/`](https://github.com/Luyoung0001/minicompiler/tree/main/step_2) &nbsp;&nbsp; **本节产出** 生成正确的 token 序列
+> **实验编号** Lab02 &nbsp;&nbsp; **预计耗时** 3h &nbsp;&nbsp; **本节产出** 生成正确的 token 序列
 
 ## 实验目的
 

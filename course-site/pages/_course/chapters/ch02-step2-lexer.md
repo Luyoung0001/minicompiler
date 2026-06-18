@@ -11,9 +11,8 @@ next_page:
 source_path: 'course/chapters/ch02-step2-lexer.md'
 ---
 
-> **对应实践**：[Lab02 - step_2 词法分析器](/course/practice/labs/lab02-step2/)  
-> **主要修改文件**：`course/practice/labs/lab02-step2/framework/student.c`  
-> **参考实现位置**：`step_2/lexer.c`
+> **对应实践**：[Lab02 - step_2 词法分析器](/course/practice/labs/lab02-step2/)
+> **主要修改文件**：`miniCompiler_lab/labs/lab02-step2/framework/student.c`
 
 到了这一章，编译器第一次开始真正“看懂一点源码”。但注意，这里的“看懂”还非常有限。词法分析器并不知道一条 `if` 语句是否合法，也不知道 `x + y * z` 的优先级是什么。它只负责做一件事：把一串连续字符切成一串更有结构的 token。
 
@@ -65,19 +64,15 @@ if (sum > 25) {
 
 一旦这一步完成，后面的 parser 就不用再去猜字符组合，而是可以直接在 token 层面谈结构。
 
-## 2.3 参考实现里最该看的地方
+## 2.3 这一章最该抓住的三类动作
 
-这一章最值得先看的参考文件是：
+词法分析器看起来分支很多，但先不要被所有 token 类型压住。它最核心的动作可以压成三类：
 
 ```text
-step_2/
-├── token.h
-├── lexer.h
-├── lexer.c
-└── minicc.c
+读取当前位置 -> 判断片段类型 -> 生成一个 token 并推进光标
 ```
 
-其中最重要的是 `step_2/lexer.c`。阅读时先抓三类函数：
+做 lab 时也按这个顺序理解：
 
 1. 状态推进：`peek`、`peek_next`、`advance`
 2. 片段扫描：标识符、数字、字符串
@@ -111,7 +106,7 @@ return      0;   // comment
 
 这一章的 practice 路径是：
 
-- `course/practice/labs/lab02-step2/`
+- `miniCompiler_lab/labs/lab02-step2/`
 
 主要修改文件：
 
@@ -120,7 +115,7 @@ return      0;   // comment
 验证命令：
 
 ```bash
-cd course/practice/labs/lab02-step2
+cd labs/lab02-step2
 make clean && make test
 ```
 

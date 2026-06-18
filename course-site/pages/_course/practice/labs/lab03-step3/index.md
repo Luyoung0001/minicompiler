@@ -10,7 +10,7 @@ source_path: 'course/practice/labs/lab03-step3/TASK.md'
 ---
 
 
-> **实验编号** Lab03 &nbsp;&nbsp; **预计耗时** 4h &nbsp;&nbsp; **对应参考实现** [`step_3/`](https://github.com/Luyoung0001/minicompiler/tree/main/step_3) &nbsp;&nbsp; **本节产出** 让 token 流生长成一棵结构正确的 AST
+> **实验编号** Lab03 &nbsp;&nbsp; **预计耗时** 4h &nbsp;&nbsp; **本节产出** 让 token 流生长成一棵结构正确的 AST
 
 ## 本章任务
 

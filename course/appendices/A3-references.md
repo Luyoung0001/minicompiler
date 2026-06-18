@@ -2,14 +2,16 @@
 
 如果你已经走完整条主线，接下来最值得做的不是盲目加功能，而是带着课程里已经建立的直觉去读更完整的编译器项目。
 
-## A3.1 先回读本项目的参考实现
+## A3.1 先回读你已经完成的 lab
 
-主线 lab 是有意缩小边界后的练习。如果你做完一章后觉得“我知道核心动作了，但还想看真实项目怎样组织完整模块”，最适合回读的就是根目录这些参考实现：
+主线 lab 是有意缩小边界后的练习。如果你做完一章后觉得“我知道核心动作了，但还没有完全把前后关系串起来”，最适合先回读的就是自己刚完成的 lab：
 
-- `step_2/lexer.c`
-- `step_3/parser.c`
-- `step_4/semantic.c`
-- `step_5/codegen.c`
+- `miniCompiler_lab/labs/lab02-step2/framework/student.c`
+- `miniCompiler_lab/labs/lab03-step3/framework/student.c`
+- `miniCompiler_lab/labs/lab04-step4/framework/student.c`
+- `miniCompiler_lab/labs/lab05-step5/framework/student.c`
+
+回读时不要只看最终代码。更有效的方式是打开对应 `TASK.md`，把“本章目标 -> TODO 函数 -> 验证输出”重新连一遍。这样你能确认自己记住的不是某几行实现，而是这一章在整个编译器链路中的位置。
 
 这时候再回看，会比一开始直接硬啃有效得多。
 

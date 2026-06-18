@@ -13,7 +13,7 @@
 
 ## A1.2 这门课用到哪些工具
 
-- `gcc`：在主机上编译课程 lab 和参考实现
+- `gcc`：在主机上编译课程 lab
 - `riscv64-unknown-linux-gnu-gcc` / `as` / `ld`：生成和处理 RISC-V 目标代码
 - `qemu-riscv32`：在主机上运行 RISC-V 32 可执行文件
 
