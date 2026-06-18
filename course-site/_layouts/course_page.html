@@ -16,8 +16,13 @@
       <header class="course-topbar">
         <div class="course-topbar__inner">
           <a class="course-topbar__brand" href="{{ '/course/' | relative_url }}">
-            <span class="course-topbar__brand-title">{{ site.title }}</span>
-            <span class="course-topbar__brand-subtitle">{{ site.description }}</span>
+            <span class="course-topbar__brand-mark" aria-hidden="true">
+              <img class="course-topbar__brand-icon" src="{{ '/assets/icons/site-mark.svg' | relative_url }}" alt="">
+            </span>
+            <span class="course-topbar__brand-copy">
+              <span class="course-topbar__brand-title">{{ site.title }}</span>
+              <span class="course-topbar__brand-subtitle">{{ site.description }}</span>
+            </span>
           </a>
 
           <nav class="course-topbar__nav" aria-label="Primary navigation">

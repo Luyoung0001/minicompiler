@@ -1,5 +1,46 @@
 # minicc Course Site
 
+这是 `minicompiler` 课程的独立文档站点工程。课程源在上一级 `course/`，这里负责把课程内容同步成可浏览网站，并发布到 Cloudflare Pages。
+
+## 本地预览
+
+```bash
+cd course-site
+python3 _scripts/sync_course.py
+bundle install
+bundle exec jekyll build
+python3 -m http.server 4004 -d _site
+```
+
+## Cloudflare Pages 部署
+
+仓库内已经带好 GitHub Actions 工作流：`.github/workflows/deploy-course-site.yml`。
+
+默认约定：
+
+- Pages project name: `minicc-course`
+- production branch: `main`
+- build source dir: `course-site/`
+- deploy output dir: `course-site/_site/`
+
+第一次接 Cloudflare 时，需要在 GitHub 仓库 secrets 中配置：
+
+- `CLOUDFLARE_API_TOKEN`
+- `CLOUDFLARE_ACCOUNT_ID`
+
+推荐 token 权限至少覆盖：
+
+- Cloudflare Pages: Edit
+- Account: Read
+
+如果要先在本地创建 Pages project，可用：
+
+```bash
+export CLOUDFLARE_API_TOKEN=...
+export CLOUDFLARE_ACCOUNT_ID=...
+./scripts/create-cloudflare-pages-project.sh minicc-course main
+```
+
 `course-site/` 是 `minicc` 课程讲义的静态网站外壳。
 
 内容真源仍然是仓库根下的 `course/`。本目录只负责：
