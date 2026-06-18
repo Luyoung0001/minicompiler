@@ -1,0 +1,6 @@
+.bundle-user/
+course-site/.bundle-user/
+course/practice/labs/**/framework/*.o
+course/practice/labs/**/lab01_step1
+course/practice/labs/**/tmp_input.c
+course/practice/labs/**/tmp_out.s
